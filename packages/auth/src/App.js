@@ -5,13 +5,13 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 
-import Landing from './components/Landing';
-import Pricing from './components/Pricing';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 
 // Tell the production to prefix the class name with 'ma'
 // Prevent the collision
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'ma',
+  productionPrefix: 'au',
 });
 
 const App = ({ history }) => {
@@ -20,8 +20,8 @@ const App = ({ history }) => {
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route exact path="/pricing" component={Pricing} />
-            <Route path="/" component={Landing} />
+            <Route path="/auth/signin" component={Signin} />
+            <Route path="/auth/signup" component={Signup} />
           </Switch>
         </Router>
       </StylesProvider>
