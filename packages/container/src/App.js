@@ -5,8 +5,8 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 
-import Header from './components/Header';
 import Loading from './components/Loading';
+import Header from './components/Header';
 const MarketingLazyLoad = lazy(() => import('./components/MarketingApp'));
 const AuthLazyLoad = lazy(() => import('./components/AuthApp'));
 
