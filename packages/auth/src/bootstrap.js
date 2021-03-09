@@ -5,7 +5,10 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // 1. Mount func
-const mount = (divElem, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (
+  divElem,
+  { onSignIn, onNavigate, defaultHistory, initialPath }
+) => {
   // Default history is used when in the development
   const history =
     defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
@@ -14,7 +17,7 @@ const mount = (divElem, { onNavigate, defaultHistory, initialPath }) => {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(<App history={history} />, divElem);
+  ReactDOM.render(<App history={history} onSignIn={onSignIn} />, divElem);
   return {
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
