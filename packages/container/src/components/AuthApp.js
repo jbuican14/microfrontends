@@ -1,4 +1,4 @@
-import { mount } from 'marketing/MarketingApp';
+import { mount } from 'auth/AuthApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -7,13 +7,10 @@ export default () => {
   const history = useHistory();
 
   useEffect(() => {
-    // Reusable piece of code to any framework
+    // Reusable to any framework
     const { onParentNavigate } = mount(ref.current, {
       initialPath: history.location.pathname,
       onNavigate: ({ pathname: nextPathname }) => {
-        // console.log('Container sends a notification to Marketing', location);
-        // console.log(nextPathname);
-
         // Check current path name if it is different or the same
         const { pathname } = history.location;
         if (pathname !== nextPathname) {

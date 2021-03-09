@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { createMemoryHistory, createBrowserHistory } from 'history';
 
 import App from './App';
-
 // 1. Mount func
 const mount = (divElem, { onNavigate, defaultHistory, initialPath }) => {
   // Default history is used when in the development

@@ -1,11 +1,14 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
   StylesProvider,
   createGenerateClassName,
 } from '@material-ui/core/styles';
-import MarketingApp from './components/MarketingApp';
+
 import Header from './components/Header';
+import Loading from './components/Loading';
+const MarketingLazyLoad = lazy(() => import('./components/MarketingApp'));
+const AuthLazyLoad = lazy(() => import('./components/AuthApp'));
 
 // Set up the prefix for naming class
 // Prevent collision
@@ -19,7 +22,12 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Header />
-          <MarketingApp />
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route path="/auth" component={AuthLazyLoad} />
+              <Route path="/" component={MarketingLazyLoad} />
+            </Switch>
+          </Suspense>
         </div>
       </BrowserRouter>
     </StylesProvider>
