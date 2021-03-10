@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { createBrowserHistory } from 'history';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -12,7 +14,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
 
+const history = createBrowserHistory();
+
 function Copyright() {
+  useEffect(() => {}, []);
+
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
